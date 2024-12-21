@@ -37,6 +37,7 @@ const ContactUs = () => {
       );
   };
 
+ 
   return (
     <>
       <motion.h2
@@ -55,8 +56,9 @@ const ContactUs = () => {
           validationSchema={validationSchema}
           onSubmit={handleSubmit}
         >
-          {({ isSubmitting }) => (
+          {({ isSubmitting, values }) => (
             <Form className="lg:w-4/6 w-[90%]">
+              {/* Form Fields */}
               <motion.div
                 className="my-4"
                 initial={{ opacity: 0, y: -20 }}
@@ -150,10 +152,11 @@ const ContactUs = () => {
                 />
               </motion.div>
 
+              {/* Submit Button */}
               <motion.button
                 type="submit"
                 disabled={isSubmitting}
-                className="cursor-pointer px-3 py-5 block text-lg rounded-xl bg-teal-600 text-white w-24"
+                className="cursor-pointer px-3 py-5 block text-lg rounded-xl bg-teal-600 text-white w-24 mb-5"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 initial={{ opacity: 0, y: -20 }}
@@ -162,6 +165,21 @@ const ContactUs = () => {
               >
                 {isSubmitting ? "Sending..." : "Submit"}
               </motion.button>
+
+              {/* WhatsApp Button */}
+              <motion.a
+                href="https://wa.me/+201008059594"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cursor-pointer px-3 py-5 block text-lg rounded-xl bg-green-600 text-white text-center w-48"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.9 }}
+              >
+                Contact via WhatsApp
+              </motion.a>
             </Form>
           )}
         </Formik>
